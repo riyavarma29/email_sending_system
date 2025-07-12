@@ -18,7 +18,7 @@ const emailService = new EmailService(providers);
 app.post('/send-email', async (req, res) => {
   const { to, subject, body } = req.body;
   const success = await emailService.sendEmail(to, subject, body);
-  const message = success ? '✅ Email sent successfully!' : '❌ Email sending failed.';
+  const message = success ? ' Email sent successfully!' : ' Email sending failed.';
   res.json({ message, log: emailService.getStatusLog() });
 });
 
@@ -27,5 +27,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(` Server running at http://localhost:${PORT}`);
 });
